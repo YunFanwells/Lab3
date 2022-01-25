@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfect World Games</title>
+    <link rel="stylesheet" href="/public/normalize.css">
+    <link rel="stylesheet" href="/public/msg.css">
+    <link rel="stylesheet" href="/public/main.css">
+</head>
+<body>
+<div class="header">
+    <div class="content">
+        <a href="" class="logo">
+            <img src="/public/logo.png" alt="">
+        </a>
+        <div class="header-links">
+            <a target="_blank" href="http://www.pwrd-art.com/AboutStd.html">Know about us</a>
+            <a target="_blank" href="http://www.pwrd-art.com/ContactStd.html">Contact us</a>
+        </div>
+    </div>
+</div>
+
+<div class="detail-content">
+    <div class="cover" style="background-image: url('/public/img/{{data.cover}}')">
+
+    </div>
+    <div class="info">
+        <div class="row">
+            <div class="label">Name</div>
+            <p>{{data.name}}</p>
+        </div>
+        {% if data.author%}
+        <div class="row">
+            <div class="label">Author</div>
+            <p>{{data.author}}</p>
+        </div>
+        {% endif %}
+        {% if data.publisher%}
+        <div class="row">
+            <div class="label">Platform</div>
+            <p>{{data.publisher}}</p>
+        </div>
+        {% endif %}
+        <div class="row">
+            <div class="label">ISBN</div>
+            <p>{{data.isbn}}</p>
+        </div>
+        <div class="row">
+            <div class="label">Desc</div>
+            <p>{{data.desc}}</p>
+        </div>
+        <div class="row">
+            <div class="label">Date</div>
+            <p>{{data.time }}</p>
+        </div>
+        <div class="row">
+            <div class="label">Price</div>
+            <p>{{data.price}} RM</p>
+        </div>
+        <button data-id="{{data.id}}" class="dd-add {%if data.use%}disabled{%endif%}">Add To Cart</button>
+        <a class="back" href="/games">Go Back</a>
+    </div>
+</div>
+<script src="/public/jq.js"></script>
+<script src="/public/msg.js"></script>
+<script src="/public/main.js">
+</script>
+<script>
+    $('.dd-add').click(function (){
+        if($(this).hasClass('disabled')){
+            Qmsg.error(`<i></i><span  style="line-height: 1.5">The item has been added to the shopping cart</span>`, {
+                html: true
+            })
+            return;
+        }
+        let id=$(this).data('id');
+        $.get('/api/use',{
+            id,
+            use:1
+        }).then(res=>{
+            Qmsg.success(`<i></i><span  style="line-height: 1.5">Item successfully added to cart</span>`, {
+                html: true
+            })
+            setTimeout(() => {
+                window.location.href = '/games';
+            }, 1500)
+        })
+    })
+</script>
+</body>
+</html>

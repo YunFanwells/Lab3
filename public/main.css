@@ -1,0 +1,642 @@
+/* cyrillic-ext */
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  src: url(https://fonts.gstatic.font.im/s/opensans/v27/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4taVIUx6EQRjA.woff2)
+    format("woff2");
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F,
+    U+FE2E-FE2F;
+}
+
+/* cyrillic */
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  src: url(https://fonts.gstatic.font.im/s/opensans/v27/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4kaVIUx6EQRjA.woff2)
+    format("woff2");
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* greek-ext */
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  src: url(https://fonts.gstatic.font.im/s/opensans/v27/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4saVIUx6EQRjA.woff2)
+    format("woff2");
+  unicode-range: U+1F00-1FFF;
+}
+
+/* greek */
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  src: url(https://fonts.gstatic.font.im/s/opensans/v27/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4jaVIUx6EQRjA.woff2)
+    format("woff2");
+  unicode-range: U+0370-03FF;
+}
+
+/* hebrew */
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  src: url(https://fonts.gstatic.font.im/s/opensans/v27/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4iaVIUx6EQRjA.woff2)
+    format("woff2");
+  unicode-range: U+0590-05FF, U+20AA, U+25CC, U+FB1D-FB4F;
+}
+
+/* vietnamese */
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  src: url(https://fonts.gstatic.font.im/s/opensans/v27/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4vaVIUx6EQRjA.woff2)
+    format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1,
+    U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  src: url(/public/fa.woff2) format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  src: url(/public/fb.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+.header {
+  padding-top: 18px;
+  height: 80px;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 2px 11px 0 hsl(0deg 0% 87% / 50%);
+  min-width: 1200px;
+}
+
+.header .logo {
+  display: block;
+  height: 48px;
+  width: 200px;
+}
+
+.header .logo img {
+  display: block;
+  height: 48px;
+  width: auto;
+}
+
+.header-links {
+  display: flex;
+  align-items: center;
+}
+
+.header-links a {
+  display: block;
+  white-space: nowrap;
+  text-decoration: none;
+  height: 28px;
+  line-height: 28px;
+  padding: 0 16px 0;
+  margin-left: 20px;
+  color: #fc4237;
+  position: relative;
+  font-style: italic;
+}
+
+.header-links a::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  background-color: #fc4237;
+}
+
+.header-links a:hover ::after {
+  width: 100%;
+}
+
+.content {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.header .content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+  background: url("/public/banner/bg1.jpg") no-repeat center;
+  background-size: cover;
+  transition: 1s ease;
+  min-width: 1200px;
+}
+
+.login-box {
+  display: flex;
+  width: 520px;
+  height: 300px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  background: #fff;
+}
+.login-box h3 {
+  margin: 0;
+  padding: 10px 0;
+}
+.login-box .login-side {
+  width: 200px;
+  height: 300px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url("./reg.webp");
+  transition: 0.3s ease;
+}
+.login-box.reg .login-side {
+  height: 350px;
+}
+.create-tip {
+  color: #888;
+  font-size: 12px;
+}
+.create-tip a {
+  text-decoration: none;
+  color: #398bff;
+}
+.login-form {
+  padding: 20px;
+  width: 320px;
+}
+.login-box .row {
+  padding: 5px 0;
+}
+.login-box .label {
+  font-size: 12px;
+  line-height: 16px;
+}
+.login-box input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 30px;
+  border: 1px solid #888;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 12px;
+  outline: none;
+}
+.login-box input:focus {
+  border-color: #1890ff;
+  background: #e9f0fd;
+}
+.login-box .submit {
+  display: block;
+  background: #2c79eb;
+  width: 100%;
+  height: 32px;
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+  margin-top: 18px;
+}
+.login-box.reg {
+  box-shadow: 8px 8px 11px 0 hsl(0deg 0% 87% / 50%);
+}
+.login-box.reg {
+  height: 350px;
+}
+.games-con {
+  width: 1060px;
+  margin: 0 auto;
+  padding-left: 10px;
+}
+.games-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+}
+.games-list .game-cell {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  box-shadow: 1px 4px 10px 2px #ccc;
+  width: 240px;
+  margin-right: 20px;
+  position: relative;
+}
+
+.games-list .price {
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+}
+.thumb {
+  margin: 0 auto;
+  height: 200px;
+
+  background-size: cover;
+  background-position: center;
+}
+
+.games-list .infos {
+  padding: 10px;
+}
+.game-name {
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-align: center;
+  padding: 10px 0;
+}
+.game-name a {
+  color: #1890ff;
+  text-decoration: none;
+  font-size: 18px;
+}
+.game-name a:hover {
+  color: #2c79eb;
+}
+.games-list .desc {
+  font-size: 14px;
+  margin-top: 6px;
+  color: #888;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  line-height: 20px;
+  height: 60px;
+}
+.add-cart {
+  display: block;
+  background: #398bff;
+  color: #fff;
+  border: 0;
+  padding: 5px 10px;
+  border-radius: 4px;
+  margin: 10px auto 0;
+  cursor: pointer;
+}
+
+.add-cart.disabled {
+  background: #888888;
+  cursor: not-allowed;
+}
+
+.add-game {
+  display: inline-block;
+  text-decoration: none;
+  background: url("/public/plus.png") #1890ff 5px center no-repeat;
+  background-size: 20px;
+  color: #fff;
+  padding: 5px 10px;
+  padding-left: 30px;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+.login-out {
+  background: #fc4237;
+  display: inline-block;
+  text-decoration: none;
+  background-size: 20px;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+.car-box {
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  width: 300px;
+  height: 100vh;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  left: -300px;
+}
+.car-box.active {
+  left: 0;
+  transition: 0.3s ease;
+}
+.car-box ul {
+  list-style: none;
+  padding: 0;
+  margin: -60px auto 0;
+  max-height: 360px;
+  overflow-y: auto;
+}
+
+.car-box ul::-webkit-scrollbar {  /* 滚动条整体部分 */
+    width:4px;
+    margin-right:2px
+}
+.car-box ul::-webkit-scrollbar-button { /* 滚动条两端的按钮 */
+    width:5px;
+}
+.car-box li {
+  margin: 10px auto;
+  padding: 0;
+}
+.car-box .total {
+  font-weight: bold;
+}
+.car-box .total:after {
+  content: "RM";
+  color: #fff;
+  padding-left: 5px;
+}
+.car-box .total:before {
+  content: "Total: ";
+}
+.car-button {
+  width: 60px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.7) url("/public/car-icon.png") no-repeat 30px
+    center;
+  background-size: 20px 20px;
+  position: relative;
+  left: 280px;
+  top: 80px;
+  cursor: pointer;
+}
+.cart-num {
+  line-height: 40px;
+  padding-left: 10px;
+  font-size: 14px;
+}
+.cart-item {
+  display: flex;
+  background: #fff;
+  color: #000;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+.cart-item .remove {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  line-height: 60px;
+  text-align: center;
+  display: none;
+  color: #fff;
+  font-weight: bolder;
+}
+.cart-item:hover .remove {
+  display: block;
+}
+.cart-item .cart-cover {
+  height: 60px;
+  width: 60px;
+  background-size: cover;
+  background-position: center;
+}
+.cart-item .cart-info {
+  margin-left: 10px;
+  width: 180px;
+}
+.cart-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: bold;
+}
+.cart-desc {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 12px;
+  line-height: 20px;
+  color: #888;
+}
+.cart-price {
+  color: #398bff;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 20px;
+}
+.cart-price:after {
+  content: "RM";
+  color: #000000;
+}
+
+.detail-content {
+  width: 1200px;
+  margin: 60px auto;
+  display: flex;
+  box-shadow: 1px 4px 10px 2px #ccc;
+}
+.detail-content .cover {
+  width: 400px;
+  height: 500px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.detail-content .info {
+  width: 800px;
+  padding: 20px;
+}
+.detail-content .row {
+  display: flex;
+  padding: 5px 0;
+}
+.detail-content .label {
+  font-size: 14px;
+  line-height: 20px;
+  width: 80px;
+  color: #888;
+  font-style: italic;
+}
+.detail-content p {
+  margin: 0;
+  padding: 0;
+  width: 600px;
+  font-size: 14px;
+}
+
+.dd-add {
+  display: block;
+  background: #1890ff;
+  color: #fff;
+  line-height: 30px;
+  padding: 5px 10px;
+  border: 0;
+  border-radius: 4px;
+  margin-top: 40px;
+}
+.dd-add.disabled {
+  background: #888888;
+  cursor: not-allowed;
+}
+.back {
+  display: block;
+  color: #1890ff;
+  font-size: 14px;
+  text-decoration: none;
+  margin-top: 20px;
+}
+
+.game-add-form {
+  width: 800px;
+  margin: 0 auto;
+}
+.game-add-form input {
+  background: #fff;
+  padding: 5px 8px;
+}
+
+.game-add-form .row {
+  padding: 5px 0;
+}
+.game-add-form .label {
+  font-size: 12px;
+  line-height: 16px;
+}
+.game-add-form input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 30px;
+  border: 1px solid #888;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 12px;
+  outline: none;
+}
+.game-add-form input:focus {
+  border-color: #1890ff;
+  background: #e9f0fd;
+}
+.game-add-form .dd-add {
+  display: block;
+  background: #2c79eb;
+  width: 100%;
+  height: 32px;
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+  margin-top: 18px;
+}
+#filePicker {
+  display: block;
+  background: #2c79eb;
+  width: 150px;
+  height: 32px;
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+  margin-top: 18px;
+}
+
+.email-op {
+  display: flex;
+}
+.email-op button {
+  background: #2c79eb;
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.del {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: url("/public/del.png") no-repeat center;
+  background-size: 20px 20px;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+}
+
+#desc {
+  width: 100%;
+  box-sizing: border-box;
+  height: 90px;
+  border: 1px solid #888;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 12px;
+  outline: none;
+}
+
+#desc:focus {
+  border-color: #1890ff;
+  background: #e9f0fd;
+}
+.add-submit {
+  display: block;
+  background: #2c79eb;
+  width: 100%;
+  height: 32px;
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+  margin-top: 18px;
+}
+.qr-box {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  padding-bottom: 20px;
+}
+.qr-box img {
+  display: block;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}

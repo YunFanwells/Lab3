@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfect World Games</title>
+    <link rel="stylesheet" href="/public/normalize.css">
+    <link rel="stylesheet" href="/public/msg.css">
+    <link rel="stylesheet" href="/public/main.css">
+</head>
+<body>
+<div class="header">
+    <div class="content">
+        <a href="" class="logo">
+            <img src="/public/logo.png" alt="">
+        </a>
+        <div class="header-links">
+            <a target="_blank" href="http://www.pwrd-art.com/AboutStd.html">Know about us</a>
+            <a target="_blank" href="http://www.pwrd-art.com/ContactStd.html">Contact us</a>
+        </div>
+    </div>
+</div>
+
+<div class="games">
+    <div class="games-con">
+        <a class="add-game" href="/add">Add A Game</a>
+        <a class="login-out" href="/">LoginOut</a>
+        <ul class="games-list">
+            {% for item in data %}
+            <li class="game-cell" >
+                <div class="del" data-id="{{item.id}}"></div>
+                <div class="thumb" style="background-image: url('/public/img/{{item.cover}}')">
+                </div>
+                <div class="infos">
+                    <div class="game-name">
+                        <a href="/gamedetail?id={{item.id}}">{{ item.name }}</a>
+                    </div>
+                    <div class="desc">{{item.desc}}</div>
+                    <div class="price">{{item.price}}RM</div>
+                    <button class="add-cart {%if item.use %}disabled{%endif%}"
+                            data-name="{{item.name}}"
+                            data-price="{{item.price}}"
+                            data-desc="{{item.desc}}"
+                            data-cover="/public/img/{{item.cover}}"
+                            data-id="{{item.id}}"
+                    >Add To Cart
+                    </button>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+<div class="car-box">
+    <div class="car-button"><span class="cart-num">{{cart | length}}</span></div>
+    <ul>
+        {%for item in cart%}
+        <li class="cart-item" >
+            <div class="remove" data-id="{{item.id}}" data-price="{{item.price}}">Remove From Cart</div>
+            <div class="cart-cover" style="background-image: url('/public/img/{{item.cover}}')">
+            </div>
+            <div class="cart-info">
+                <div class="cart-name">
+                    {{item.name}}
+                </div>
+                <div class="cart-desc">
+                    {{item.desc}}
+                </div>
+                <div class="cart-price">
+                    {{item.price}}
+                </div>
+            </div>
+        </li>
+        {%endfor%}
+    </ul>
+    <p class="total">{{total}}</p>
+    <div class="qr-box">
+        <img src="/public/qr.jpg" alt="">
+        <p>Scan to pay</p>
+    </div>
+</div>
+<script src="/public/jq.js"></script>
+<script src="/public/msg.js"></script>
+<script src="/public/main.js">
+</script>
+<script>
+    $('body').on('click', '.add-cart', function () {
+        if ($(this).hasClass('disabled')) {
+            return;
+        }
+        let cover=$(this).data('cover');
+        let name=$(this).data('name');
+        let desc=$(this).data('desc');
+        let price=$(this).data('price');
+        let id=$(this).data('id');
+        $.get('/api/use',{
+            use:1,
+            id:$(this).data('id')
+        }).then(res=>{
+            if(res.success){
+                $('.car-box ul').append(`
+        <li class="cart-item">
+         <div class="remove" data-id="${id}" data-price="${price}">Remove From Cart</div>
+            <div class="cart-cover" style="background-image: url('${cover}')">
+            </div>
+            <div class="cart-info">
+                <div class="cart-name">
+                ${name}
+                </div>
+               <div class="cart-desc">
+               ${desc}
+               </div>
+                <div class="cart-price">
+                ${price}
+                </div>
+            </div>
+        </li>`)
+                $(this).addClass('disabled');
+                $('.cart-num').text($('.cart-item').length)
+                let last=Number($('.total').text());
+                $('.total').text((last+price).toFixed(2))
+            }
+        })
+
+
+    })
+    $('body').on('click', '.car-button', function () {
+        $('.car-box').toggleClass('active');
+    })
+    $('body').on('click', '.remove', function () {
+        const $this=$(this);
+        const price=$this.data('price');
+        let id=$(this).data('id');
+        $.get('/api/use',{
+            use:0,
+            id:$(this).data('id')
+        }).then(res=>{
+
+            $this.closest('li').remove();
+           $(`.add-cart[data-id="${id}"]`).removeClass('disabled')
+            $('.cart-num').text($('.cart-num').text()-1)
+            $('.total').text($('.total').text()- price)
+        })
+    })
+
+    $('body').on('click','.del',function () {
+        let id=$(this).data('id');
+        $.get('/api/del',{id}).then(res=>{
+            if(res.success){
+                window.location.reload();
+            }
+        })
+    })
+
+</script>
+</body>
+</html>
